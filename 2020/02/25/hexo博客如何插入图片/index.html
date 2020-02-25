@@ -5,12 +5,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>雨泉清音 - 雨泉清音の博客</title>
+    <title>hexo博客如何插入图片 - 雨泉清音</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="雨泉清音の博客,"> 
+    <meta name="description" content="雨泉清音の博客,准备工作
+在hexo目录下执行
+1npm install https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;CodeFalling&amp;#x2F;hexo-asset-image --,"> 
     <meta name="author" content="雨泉清音"> 
     <link rel="alternative" href="atom.xml" title="雨泉清音" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -35,110 +37,98 @@
 <body class="loading">
     <span id="config-title" style="display:none">雨泉清音</span>
     <div id="loader"></div>
-    <div class="nav">
-    <ul id="menu-menu" class="menu">
-        
-        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/whoami/" title="Whoami" target="_blank" rel="noopener">Whoami</a>
-        </li>
-        
-        <li class="  menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="https://github.com/Fechin" title="Github" target="_blank" rel="noopener">Github</a>
-        </li>
-        
-        <li class="  menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="https://twitter.com/FechinLi" title="Twitter" target="_blank" rel="noopener">Twitter</a>
-        </li>
-        
-    </ul>
-    <p id="copyright">
-        &copy; 2020 雨泉清音.
-        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
-        Theme <a href="https://github.com/Fechin/hexo-theme-diaspora" title="Diaspora" target="_blank" rel="noopener">Diaspora</a>
-        by Fechin
-    </p>
-</div>
-
-<div id="container">
-    
-<div id="screen">
-    <div id="mark">
-        <div class="layer" data-depth="0.4">
-            <img src="/img/welcome-cover.jpg" id="cover" crossorigin="anonymous" width="1920" height="1080">
-        </div>
-    </div>
-    <div id="vibrant">
-        <svg viewBox="0 0 2880 1620" height="100%" preserveAspectRatio="xMaxYMax slice">
-            <polygon opacity="0.7" points="2000,1620 0,1620 0,0 600,0 "/>
-        </svg>
-        <div></div>
-    </div>
-    <div id="header">
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">hexo博客如何插入图片</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
         <div>
-            <a class="image-logo" href="/"></a>
-            <div class="icon-menu switchmenu"></div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
         </div>
     </div>
-    
-    <div id="post0">
-        <p>二月 25, 2020</p>
-        <h2><a href="/2020/02/25/win10%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/" title="win10搭建hexo博客" class="posttitle">win10搭建hexo博客</a></h2>
-        <p class="summary">准备工作
-安装npm
-安装git for window
-
-正式安装
-安装cnpm。利用npm安装cnpm，使得下载...</p>
-    </div>
-    
+    <div class="scrollbar"></div>
 </div>
 
-    <div id="primary">
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">hexo博客如何插入图片</h1>
+        <div class="stuff">
+            <span>二月 25, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
+<li><p>在hexo目录下执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https:&#x2F;&#x2F;github.com&#x2F;CodeFalling&#x2F;hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>确认<strong><em>_config.yml</em></strong>文件中<strong><em>post_asset_folder:true</em></strong></p>
+</li>
+</ol>
+<h2 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h2><ol start="3">
+<li><p>生成文章和对应文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;fileName&quot;</span><br></pre></td></tr></table></figure>
+
+<p>完成后在hexo根目录的\source\ _posts下回生成fileName.md和fileName文件夹</p>
+</li>
+<li><p>把图片test.png放入fileName文件夹</p>
+</li>
+<li><p>打开fileName.md，在你需要引用图片test.png的位置填入以下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![你想要的图片描述](fileName&#x2F;test.png)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>访问<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 验证是否成功</p>
+</li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
         
-<div class="post">
-    <a href="/2020/02/25/hexo%E5%8D%9A%E5%AE%A2%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" title="hexo博客如何插入图片">
-        <img src="/img/cover.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>二月 25, 2020</p>
-        <h3><a href="/2020/02/25/hexo%E5%8D%9A%E5%AE%A2%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" title="hexo博客如何插入图片" class="posttitle">hexo博客如何插入图片</a></h3>
-        <p>准备工作
-在hexo目录下执行
-1npm install https:&#x2F;&#x2F;github.com&#x2F;CodeFalling&#x...</p>
-    </div>
-</div>
-
-
-<div class="post">
-    <a href="/2020/02/24/I'm%20bored,%20what%20do%20I%20do/" title="I'm bored, what do I do">
-        <img src="/img/cover.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>二月 24, 2020</p>
-        <h3><a href="/2020/02/24/I'm%20bored,%20what%20do%20I%20do/" title="I&#39;m bored, what do I do" class="posttitle">I&#39;m bored, what do I do</a></h3>
-        <p>I’m bored, what do I do?
-If you are bored it’s because you haven’t done anyth...</p>
-    </div>
-</div>
-
-
-<div class="post">
-    <a href="/2020/02/24/hello-world/" title="Hello World">
-        <img src="/img/cover.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>二月 24, 2020</p>
-        <h3><a href="/2020/02/24/hello-world/" title="Hello World" class="posttitle">Hello World</a></h3>
-        <p>Welcome to Hexo! This is your very first post. Check documentation for more i...</p>
-    </div>
-</div>
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
 
 
     </div>
     
 </div>
-<div id="preview"></div>
 
+
+    </div>
+</div>
 </body>
 
 <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
