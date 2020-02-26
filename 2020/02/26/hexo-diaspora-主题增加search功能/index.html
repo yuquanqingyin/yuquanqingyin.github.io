@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>hexo diaspora 主题增加search功能 - 雨泉清音</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="雨泉清音,"> 
+    <meta name="description" content="雨泉清音の博客,
+cmd下运行
+1hexo new page search
+
+编辑hexo根目录下的source/search/index.md文件
+1234---title: searchtype: &amp;quot;,"> 
+    <meta name="author" content="雨泉清音"> 
+    <link rel="alternative" href="atom.xml" title="雨泉清音" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">雨泉清音</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">hexo diaspora 主题增加search功能</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">hexo diaspora 主题增加search功能</h1>
+        <div class="stuff">
+            <span>二月 26, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <ol>
+<li><p>cmd下运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page search</span><br></pre></td></tr></table></figure>
+
+<p>编辑hexo根目录下的source/search/index.md文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: search</span><br><span class="line">type: &quot;search&quot;  </span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在主题的_config.yml文件中找到以下部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 头部菜单，title: link</span><br><span class="line">menu:</span><br><span class="line">  Whoami: &#x2F;whoami</span><br><span class="line">  Github: https:&#x2F;&#x2F;github.com&#x2F;yuquanqingyin</span><br><span class="line">  Archives: &#x2F;archives</span><br></pre></td></tr></table></figure>
+
+<p>添加以下部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Search: &#x2F;search</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在themes\diaspora\source\js文件夹下找到diaspora.js文件，在文件末尾添加以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">function get_posts(text)&#123;</span><br><span class="line">    var posts &#x3D; document.getElementsByClassName(&#39;timeline-item&#39;);</span><br><span class="line">    &#x2F;&#x2F; console.log(posts.length);</span><br><span class="line">    if (text &#x3D;&#x3D; &quot;&quot;)&#123;</span><br><span class="line">        all_none(posts);</span><br><span class="line">        return ;</span><br><span class="line">    &#125;</span><br><span class="line">    var count &#x3D; 0;</span><br><span class="line">    for (var i &#x3D; 0;i&lt;posts.length; ++i)&#123;</span><br><span class="line">        var temp &#x3D; posts[i].id.toLowerCase();</span><br><span class="line">        if ( temp.search(text) !&#x3D; -1 )&#123;</span><br><span class="line">            posts[i].style &#x3D; &quot;display: block&quot;;</span><br><span class="line">            count +&#x3D; 1;</span><br><span class="line">            &#x2F;&#x2F; console.log(posts[i].id);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            posts[i].style &#x3D; &quot;display: none&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (count &gt; 0)&#123;</span><br><span class="line">        var search_count &#x3D; document.getElementById(&#39;search_count&#39;);</span><br><span class="line">        search_count.style &#x3D; &quot;display: block&quot;;</span><br><span class="line">        search_count.innerHTML &#x3D; &quot;为你献上&quot;+count+ &quot;篇&quot;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        document.getElementById(&#39;search_count&#39;).style &#x3D; &quot;display: none&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function all_none(posts)&#123;</span><br><span class="line">    for (let i &#x3D; 0;i&lt;posts.length; ++i)&#123;</span><br><span class="line">        document.getElementById(&#39;search_count&#39;).style &#x3D; &quot;display: none&quot;;</span><br><span class="line">        posts[i].style &#x3D; &quot;display: none&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function button_search_onkeypress()&#123;</span><br><span class="line">    var text &#x3D; document.getElementById(&quot;search&quot;).value.toLowerCase();</span><br><span class="line">    &#x2F;&#x2F; console.log(&quot;读取到的文本:&quot;+ text );</span><br><span class="line">    get_posts(text);</span><br><span class="line">&#125;</span><br><span class="line">function text_button_search_onkeypress()&#123;</span><br><span class="line">    var text &#x3D; document.getElementById(&quot;search&quot;).value.toLowerCase();</span><br><span class="line">    var p &#x3D; document.getElementById(&quot;search_test&quot;);</span><br><span class="line">    p.innerHTML &#x3D; text;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在themes\diaspora\layout_partial文件夹下新建search.ejs，复制以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;hexosearch&quot;&gt;</span><br><span class="line">    &lt;style &gt;</span><br><span class="line">        input &#123;</span><br><span class="line">            outline: none;</span><br><span class="line">        &#125;</span><br><span class="line">        input[type&#x3D;search] &#123;</span><br><span class="line">            -webkit-appearance: textfield;</span><br><span class="line">            font-family: inherit;</span><br><span class="line">            font-size: 100%;</span><br><span class="line">        &#125;</span><br><span class="line">        input::-webkit-search-decoration,</span><br><span class="line">        input::-webkit-search-cancel-button &#123;</span><br><span class="line">            display: none;</span><br><span class="line">        &#125;</span><br><span class="line">        input[type&#x3D;search] &#123;</span><br><span class="line">            border: solid 1px #ccc;</span><br><span class="line">            padding: 9px 9px 9px 9px;</span><br><span class="line">            width: 200px;</span><br><span class="line">            -webkit-border-radius: 10em;</span><br><span class="line">            -moz-border-radius: 10em;</span><br><span class="line">            border-radius: 10em;</span><br><span class="line">            -webkit-transition: all .5s;</span><br><span class="line">            -moz-transition: all .5s;</span><br><span class="line">            transition: all .5s;</span><br><span class="line">        &#125;</span><br><span class="line">        input[type&#x3D;search]:focus &#123;</span><br><span class="line">            width: 130px;</span><br><span class="line">            background-color: #fff;</span><br><span class="line">            border-color: #6dcff6;</span><br><span class="line">            margin-left: -11px;</span><br><span class="line">            margin-right: 11;</span><br><span class="line">            width: 330px;</span><br><span class="line">            -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);</span><br><span class="line">            -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);</span><br><span class="line">            box-shadow: 0 0 5px rgba(109, 207, 246, .5);</span><br><span class="line">        &#125;</span><br><span class="line">        input:-moz-placeholder &#123;</span><br><span class="line">            color: #999;</span><br><span class="line">        &#125;</span><br><span class="line">        input::-webkit-input-placeholder &#123;</span><br><span class="line">            color: #999;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div style&#x3D;&quot;margin-top: 123px;text-align:center&quot;&gt;</span><br><span class="line">        &lt;form&gt;</span><br><span class="line">            &lt;input id &#x3D; &quot;search&quot; name&#x3D; &quot;search&quot; type&#x3D;&quot;search&quot; placeholder&#x3D;&quot;积极开发中&quot; autocomplete&#x3D;&quot;off&quot; style&#x3D;&quot;text-align:center&quot; onfocus&#x3D;&quot;this.setAttribute(&#39;placeholder&#39;, &#39;&#39;); &quot; onblur&#x3D;&quot;if (this.value &#x3D;&#x3D; &#39;&#39;) this.setAttribute(&#39;placeholder&#39;, &#39;下次一定！&#39;);&quot; onkeyup&#x3D;&quot;button_search_onkeypress(),this.value&#x3D;this.value.replace(&#x2F;(^\s*)&#x2F;g,&#39;&#39;)&quot;&gt;</span><br><span class="line">            &lt;input id &#x3D; &quot;search-btn&quot; style&#x3D;&quot;display: none;&quot;&gt;</span><br><span class="line">        &lt;&#x2F;form&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"> </span><br><span class="line">&lt;!-- 下面是归档代码 直接套过来 --&gt;</span><br><span class="line">&lt;div id&#x3D;&quot;single&quot; class&#x3D;&quot;page&quot;&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;top&quot;&gt;</span><br><span class="line">        &lt;a class&#x3D;&quot;icon-left image-icon&quot; href&#x3D;&quot;javascript:history.back()&quot;&gt;&lt;&#x2F;a&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;section&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;article&quot;&gt;</span><br><span class="line">            &lt;div class&#x3D;&quot;main&quot;&gt;</span><br><span class="line">                &lt;div class&#x3D;&quot;content&quot;&gt;</span><br><span class="line">                    &lt;div class&#x3D;&quot;timeline&quot;&gt;</span><br><span class="line">                      &lt;h2 style&#x3D;&quot;display:none&quot; class&#x3D;&quot;timeline-title&quot; id&#x3D;&quot;search_count&quot;&gt;&lt;&#x2F;h2&gt;</span><br><span class="line">                      &lt;% var posts &#x3D; site.posts.sort(&#39;date&#39;, &#39;desc&#39;); %&gt;</span><br><span class="line">                      &lt;% for(let i &#x3D; 0, year &#x3D; -1; i &lt; posts.data.length; ++i) &#123; %&gt;</span><br><span class="line">                        &lt;%</span><br><span class="line">                          const psg &#x3D; posts.data[i];</span><br><span class="line">                          if(psg.date.year() !&#x3D;&#x3D; year) &#123;</span><br><span class="line">                            year &#x3D; psg.date.year();</span><br><span class="line">                        %&gt;</span><br><span class="line">                        &lt;% &#125; %&gt;</span><br><span class="line">                        &lt;% var text &#x3D; &quot;&quot; %&gt;</span><br><span class="line">                        &lt;% for(let i &#x3D; 0; i &lt; psg.tags.data.length; ++i) &#123; %&gt;</span><br><span class="line">                            &lt;%</span><br><span class="line">                              text +&#x3D; &quot;|&quot;;</span><br><span class="line">                              text +&#x3D; psg.tags.data[i].name;</span><br><span class="line">                            %&gt;</span><br><span class="line">                            &lt;% &#125; %&gt;</span><br><span class="line">                        &lt;div style&#x3D;&quot;display:none&quot; class&#x3D;&quot;timeline-item&quot; id&#x3D;&lt;%&#x3D; psg.title + text %&gt; &gt;</span><br><span class="line">                          &lt;time&gt;&lt;%- psg.date.format(&quot;YYYY-MM-DD&quot;) %&gt;&lt;&#x2F;time&gt;</span><br><span class="line">                          &lt;a target&#x3D;&quot;_self&quot; href&#x3D;&quot;&lt;%- url_for(psg.path) %&gt;&quot;&gt;&lt;%&#x3D; psg.title %&gt;&lt;&#x2F;a&gt;</span><br><span class="line">                        &lt;&#x2F;div&gt;</span><br><span class="line">                      &lt;% &#125; %&gt;</span><br><span class="line">                    &lt;&#x2F;div&gt;</span><br><span class="line">                &lt;&#x2F;div&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>完整！！！</p>
+</li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='eaf992d57da6045bbfda'
+        data-cs='cfe316f38eba59b001d63f117dce92c78686c0a1'
+        data-r='yuquanqingyin.github.io'
+        data-o='yuquanqingyin '
+        data-a='yuquanqingyin'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

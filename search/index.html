@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>归档</title>
+    <title>雨泉清音 - 雨泉清音の博客</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
@@ -43,43 +43,127 @@
         <div class="article">
             <div class="main">
                 <div class="content">
+                
+                    <div class="hexosearch">
+    <style >
+        input {
+            outline: none;
+        }
+        input[type=search] {
+            -webkit-appearance: textfield;
+            font-family: inherit;
+            font-size: 100%;
+        }
+        input::-webkit-search-decoration,
+        input::-webkit-search-cancel-button {
+            display: none;
+        }
+        input[type=search] {
+            border: solid 1px #ccc;
+            padding: 9px 9px 9px 9px;
+            width: 200px;
+            -webkit-border-radius: 10em;
+            -moz-border-radius: 10em;
+            border-radius: 10em;
+            -webkit-transition: all .5s;
+            -moz-transition: all .5s;
+            transition: all .5s;
+        }
+        input[type=search]:focus {
+            width: 130px;
+            background-color: #fff;
+            border-color: #6dcff6;
+            margin-left: -11px;
+            margin-right: 11;
+            width: 330px;
+            -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+            -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+            box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+        }
+        input:-moz-placeholder {
+            color: #999;
+        }
+        input::-webkit-input-placeholder {
+            color: #999;
+        }
+    </style>
+</div>
+<div style="margin-top: 123px;text-align:center">
+        <form>
+            <input id = "search" name= "search" type="search" placeholder="Search" autocomplete="off" style="text-align:center" onfocus="this.setAttribute('placeholder', ''); " onblur="if (this.value == '') this.setAttribute('placeholder', 'keyword');" onkeyup="button_search_onkeypress(),this.value=this.value.replace(/(^\s*)/g,'')">
+            <input id = "search-btn" style="display: none;">
+        </form>
+</div>
+ 
+<!-- 下面是归档代码 直接套过来 -->
+<div id="single" class="page">
+    <div id="top">
+        <a class="icon-left image-icon" href="javascript:history.back()"></a>
+    </div>
+    <div class="section">
+        <div class="article">
+            <div class="main">
+                <div class="content">
                     <div class="timeline">
-                      <h2 class="timeline-title">Archives : 5 posts </h2>
+                      <h2 style="display:none" class="timeline-title" id="search_count"></h2>
                       
                       
                         
-                          <h3 class="timeline-subtitle">2020</h3>
                         
-                        <div class="timeline-item">
+                        
+                        
+                            
+                            
+                        <div style="display:none" class="timeline-item" id=hexo diaspora 主题增加search功能|hexo >
                           <time>2020-02-26</time>
                           <a target="_self" href="/2020/02/26/hexo-diaspora-%E4%B8%BB%E9%A2%98%E5%A2%9E%E5%8A%A0search%E5%8A%9F%E8%83%BD/">hexo diaspora 主题增加search功能</a>
                         </div>
                       
                         
-                        <div class="timeline-item">
+                        
+                        
+                            
+                            
+                        <div style="display:none" class="timeline-item" id=I am bored,what do I do|杂文摘录 >
                           <time>2020-02-26</time>
                           <a target="_self" href="/2020/02/26/I-am-bored-what-do-I-do/">I am bored,what do I do</a>
                         </div>
                       
                         
-                        <div class="timeline-item">
+                        
+                        
+                            
+                            
+                        <div style="display:none" class="timeline-item" id=win10搭建hexo博客|hexo >
                           <time>2020-02-25</time>
                           <a target="_self" href="/2020/02/25/win10%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/">win10搭建hexo博客</a>
                         </div>
                       
                         
-                        <div class="timeline-item">
+                        
+                        
+                            
+                            
+                        <div style="display:none" class="timeline-item" id=hexo博客如何插入图片|hexo >
                           <time>2020-02-25</time>
                           <a target="_self" href="/2020/02/25/hexo%E5%8D%9A%E5%AE%A2%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">hexo博客如何插入图片</a>
                         </div>
                       
                         
-                        <div class="timeline-item">
+                        
+                        
+                        <div style="display:none" class="timeline-item" id=Hello World >
                           <time>2020-02-24</time>
                           <a target="_self" href="/2020/02/24/hello-world/">Hello World</a>
                         </div>
                       
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                
                 </div>
             </div>
         </div>
