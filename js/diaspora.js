@@ -520,7 +520,7 @@ function get_posts(text){
     if (count > 0){
         var search_count = document.getElementById('search_count');
         search_count.style = "display: block";
-        search_count.innerHTML = "为你献上"+count+ "篇"
+        search_count.innerHTML = ""+count+ "  Found"
     } else {
         document.getElementById('search_count').style = "display: none";
     }
