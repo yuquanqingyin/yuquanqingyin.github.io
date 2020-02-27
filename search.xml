@@ -1,6 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java后端开发学习路线</title>
+    <url>/2020/02/27/Java%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
+    <content><![CDATA[<h2 id="语言基础"><a href="#语言基础" class="headerlink" title="语言基础"></a>语言基础</h2><ul>
+<li>《Java核心技术》</li>
+<li>《Java并发编程实战》</li>
+<li>《深入理解Java虚拟机》</li>
+<li>《Java编程思想》</li>
+<li>《函数式编程思维》</li>
+</ul>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><ul>
+<li>《算法》</li>
+<li>《算法导论》（不推荐，需要非常扎实的数学功底）</li>
+<li>如果学过C++或者完全没基础，推荐《算法笔记》和《算法笔记上机实践》，然后去刷PAT练习</li>
+<li>LeetCode</li>
+</ul>
+<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><ul>
+<li>《计算机网络自顶向下》</li>
+<li>《TCP/IP详解》</li>
+</ul>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><ul>
+<li>《鸟哥的Linux私房菜》</li>
+<li>《Linux就该这样学》</li>
+<li>《Unix高级环境编程》</li>
+</ul>
+<h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><ul>
+<li>《Spring Boot实战》</li>
+<li>《Spring MVC + mybatis开发从入门到精通》</li>
+<li>《Spring实战》</li>
+<li>《Spring技术内幕》（源码分析，很难）</li>
+</ul>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><ul>
+<li>《Elasticsearch服务器开发》</li>
+</ul>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><ul>
+<li>《MySQL必知必会》</li>
+<li>《高性能MySQL》</li>
+<li>《redis入门指南》</li>
+</ul>
+<h2 id="代码质量"><a href="#代码质量" class="headerlink" title="代码质量"></a>代码质量</h2><ul>
+<li>《重构 改善既有代码的设计》</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C/C++企业级开发学习路线</title>
+    <url>/2020/02/27/C-C-%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
+    <content><![CDATA[<h2 id="语言基础"><a href="#语言基础" class="headerlink" title="语言基础"></a>语言基础</h2><ul>
+<li><p>C语言    </p>
+<p>基础入门</p>
+<ul>
+<li>《C Primer Plus》</li>
+<li>《C和指针》</li>
+<li>《C专家编程》</li>
+</ul>
+</li>
+<li><p>C++</p>
+<ul>
+<li>《C++Primer》</li>
+<li>《C++ Primer Plus》（比《C++ Primer Plus》更基础）</li>
+<li>《Effective C++》</li>
+<li>《More Effective C++》</li>
+<li>《C++标准程序库》</li>
+<li>《深入探索C++对象模型》</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h2><ul>
+<li>基础算法<ul>
+<li>《大话数据结构》</li>
+<li>《剑指offer》</li>
+<li>Leetcode刷题</li>
+<li>《算法笔记》《算法笔记上机实践》（刚入门使用，配合PAT刷题记住部分模板）</li>
+<li>《算法》（Java语言）</li>
+</ul>
+</li>
+<li>进阶算法<ul>
+<li>《算法导论》</li>
+</ul>
+</li>
+</ul>
+<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><ul>
+<li>《计算机网络自顶向下》</li>
+<li>《TCP/IP详解》</li>
+</ul>
+<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><ul>
+<li>《深入理解操作系统》</li>
+</ul>
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><ul>
+<li>《大话设计模式》</li>
+</ul>
+<h2 id="应用与编程实践"><a href="#应用与编程实践" class="headerlink" title="应用与编程实践"></a>应用与编程实践</h2><ul>
+<li>《鸟哥的Linux私房菜》</li>
+<li>《Linux就该这么学》</li>
+</ul>
+<h2 id="编译和调试工具材料"><a href="#编译和调试工具材料" class="headerlink" title="编译和调试工具材料"></a>编译和调试工具材料</h2><ul>
+<li>GNU官方关于GCC和GDB的文档（英文）</li>
+<li>《debuging with GDB》</li>
+<li>《跟我一起写makefile》</li>
+</ul>
+<h2 id="Linux环境编程"><a href="#Linux环境编程" class="headerlink" title="Linux环境编程"></a>Linux环境编程</h2><ul>
+<li>《Unix高级环境编程》</li>
+<li>《Linux高性能服务器编程》</li>
+<li>《POSIX多线程程序设计》</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>c/c++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《读者》2019年1 --- 6期漫画与幽默摘录</title>
     <url>/2020/02/26/%E3%80%8A%E8%AF%BB%E8%80%85%E3%80%8B2019%E5%B9%B41-6%E6%9C%9F%E6%BC%AB%E7%94%BB%E4%B8%8E%E5%B9%BD%E9%BB%98%E6%91%98%E5%BD%95/</url>
     <content><![CDATA[<h3 id="神回复"><a href="#神回复" class="headerlink" title="神回复"></a>神回复</h3><p>问：明知女孩已有男朋友还去追求的男生通常是怎样的人？ 答：深谙投资之道的人。追有男朋友的女孩，他只有一个竞争对手；追没有男朋友的女孩，他将面对无数个竞争对手。</p>
