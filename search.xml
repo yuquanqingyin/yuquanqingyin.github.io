@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Collection</title>
+    <url>/2020/02/28/Collection/</url>
+    <content><![CDATA[<h2 id="关于本文"><a href="#关于本文" class="headerlink" title="关于本文"></a>关于本文</h2><p>我经常在视频、文章中看到一些有趣的知识或工具，但是一时半会用不上，时间久了又会忘掉。这些东西可能没什么用，甚至一辈子也不会派上什么用场，但是能改变我的心情，很奇怪对吧，奇怪就对了，这就是傻逼的我，哈哈哈哈哈哈。</p>
+<p>这篇文章主要用来收集这些东西，并不定期的更新。</p>
+<h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><ul>
+<li><p><a href="https://en.wikipedia.org/wiki/Euthanasia_Coaster" target="_blank" rel="noopener">安乐死过山车</a><br>这种过山车会快速上升到510米，然后从那里下降500米，达到每小时360公里的速度，接着进入一段旋转轨道，直径一个比一个小，达到10个重力加速度，持续60秒。乘客会由于大脑缺氧供血不足，先陷入昏迷，然后死亡。</p>
+</li>
+<li><p><a href="https://xiezuocat.com/#/" target="_blank" rel="noopener">写作猫</a></p>
+<p>AI 写作助手，可以给出文章中的语言错误。</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>collection</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java后端开发学习路线</title>
     <url>/2020/02/27/Java%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
     <content><![CDATA[<h2 id="语言基础"><a href="#语言基础" class="headerlink" title="语言基础"></a>语言基础</h2><ul>
