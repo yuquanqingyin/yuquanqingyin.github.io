@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>test</title>
-    <url>/2020/02/28/test/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>diary</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java后端开发学习路线</title>
     <url>/2020/02/27/Java%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
     <content><![CDATA[<h2 id="语言基础"><a href="#语言基础" class="headerlink" title="语言基础"></a>语言基础</h2><ul>
