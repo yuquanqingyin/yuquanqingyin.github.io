@@ -4,11 +4,247 @@
     <title>2020/02/29</title>
     <url>/2020/02/29/diary/2020-02-29/</url>
     <content><![CDATA[<h2 id="今日完成"><a href="#今日完成" class="headerlink" title="今日完成"></a>今日完成</h2><ul>
-<li>这个网站终于完成啦，应该不会有太多修改</li>
+<li>早上这个网站终于完成啦，应该不会有太多修改</li>
+<li>中午看了几个数学视频</li>
+<li>午睡了半小时</li>
+<li>中午和晚上整理《算法笔记》第四章的知识点，太多了！！！</li>
 </ul>
-<h2 id="今日总结（最多两行）"><a href="#今日总结（最多两行）" class="headerlink" title="今日总结（最多两行）"></a>今日总结（最多两行）</h2><h2 id="明天（最多5个）"><a href="#明天（最多5个）" class="headerlink" title="明天（最多5个）"></a>明天（最多5个）</h2><h2 id="备忘录"><a href="#备忘录" class="headerlink" title="备忘录"></a>备忘录</h2>]]></content>
+<h2 id="今日总结（最多两行）"><a href="#今日总结（最多两行）" class="headerlink" title="今日总结（最多两行）"></a>今日总结（最多两行）</h2><ul>
+<li>总算开始干点什么了，但是因为东西太多，态度不够认真，晚上整理到后面，代码没思考就直接抄上去</li>
+<li>明天加油</li>
+</ul>
+<h2 id="明天（最多5个）"><a href="#明天（最多5个）" class="headerlink" title="明天（最多5个）"></a>明天（最多5个）</h2><ul>
+<li>早上英语单词和经济学人</li>
+<li>中午数学</li>
+<li>晚上数据结构</li>
+</ul>
+<h2 id="备忘录"><a href="#备忘录" class="headerlink" title="备忘录"></a>备忘录</h2><ul>
+<li>六点起床</li>
+<li>洗面奶</li>
+<li>看日历</li>
+<li>收电脑、手机</li>
+<li>做事情不听歌</li>
+<li>刷学习强国</li>
+<li>拖地、扫地</li>
+</ul>
+]]></content>
       <tags>
         <tag>diary</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《算法笔记》第四章</title>
+    <url>/2020/02/29/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B%E7%AC%AC%E5%9B%9B%E7%AB%A0/</url>
+    <content><![CDATA[<h2 id="第四章-入门篇（2）-算法初步"><a href="#第四章-入门篇（2）-算法初步" class="headerlink" title="第四章 入门篇（2）  算法初步"></a>第四章 入门篇（2）  算法初步</h2><blockquote>
+<p>重点：<font color="red">红色</font>   </p>
+<p>不理解：TODO</p>
+</blockquote>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><ul>
+<li><h4 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h4><p>有序 | 无序</p>
+<p>​           从无序中选出最小值A[j]放入有序的最后面</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectSort</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//数组有效值为[1,n]</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;    <span class="comment">//为什么是n次？</span></span><br><span class="line">		<span class="keyword">int</span> k = i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = i;j &lt;= n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(A[j] &lt; A[k])&#123;</span><br><span class="line">                k = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(A[i],A[k]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><h4 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h4><p>有序 | 无序</p>
+<p>​           从左往右拿出无序的第一个与有序的每一个进行比较，找到适当位置放入</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertSort</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//数组有效值为[1,n]</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= n;i++)&#123;     <span class="comment">//为什么是n-1次？</span></span><br><span class="line">        <span class="keyword">int</span> temp = A[i],j = i;     <span class="comment">//j≠i-1，否则①出错</span></span><br><span class="line">        <span class="keyword">while</span>(j &gt; <span class="number">1</span> &amp;&amp; temp &lt; A[j])&#123;</span><br><span class="line">            A[j] = A[j<span class="number">-1</span>];         <span class="comment">//①</span></span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        A[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><h4 id="排序题与sort函数应用"><a href="#排序题与sort函数应用" class="headerlink" title="排序题与sort函数应用"></a>排序题与sort函数应用</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span>&#123;</span></span><br><span class="line">  	<span class="keyword">char</span> name[<span class="number">10</span>];</span><br><span class="line">  	<span class="keyword">char</span> id[<span class="number">10</span>];</span><br><span class="line">  	<span class="keyword">int</span> score;</span><br><span class="line">  	<span class="keyword">int</span> r;   <span class="comment">//排名</span></span><br><span class="line">  &#125;student[<span class="number">100</span>];</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>对student数组按照<strong>分数从<font color="red">高到低</font>排序，分数相同按姓名的字典序<font color="red">从小到大</font>排序</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Student a,Stuent b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.score != b.score) <span class="keyword">return</span> a.score &gt; b.score;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">strcmp</span>(a.name,b,name) &lt; <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">sort(student,student + n,cmp);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用sort函数，对已经排好序的student数组进行排名，排名要求：<strong>分数不同排名不同，分数相同排名相同但占用一个位置</strong>。例如：1,2,2,2,5</p>
+<ul>
+<li><p>方法一：适用于在结构体内记录每个学生的排名</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">stu[<span class="number">0</span>].r = <span class="number">1</span>;  <span class="comment">//student数组有效值[0,n-1]</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; n;i++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(stu[i].score == stu[i<span class="number">-1</span>])&#123;</span><br><span class="line">          stu[i].r = stu[i - <span class="number">1</span>].r;</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          stu[i].r = i + <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法二：不需要在结构体内记录排名</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> r = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; stu[i].score != stu[i - <span class="number">1</span>].score)&#123;</span><br><span class="line">        r = i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//输出student信息、排名</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="散列"><a href="#散列" class="headerlink" title="散列"></a>散列</h3><ul>
+<li><h4 id="引入散列的问题"><a href="#引入散列的问题" class="headerlink" title="引入散列的问题"></a>引入散列的问题</h4><p>N个正整数为{8,3,7,6,2}，欲查询的M个正整数为{7,4,2}，问：这M个数中的每个数分别是否存在N个数中出现过？/出现过几次？</p>
+<p>散列：把元素x通过一个函数H(x)转换为整数key，使得整数key可以尽量唯一地代表这个元素。</p>
+<p>当元素x为整数时H(x)=x，比较简单，但是当元素x为字符串时怎么办？</p>
+<p>即问题变为：给出N个字符串，再给出M个查询字符串，问每个查询字符串在N个字符串中出现几次？</p>
+</li>
+<li><h4 id="字符串hash"><a href="#字符串hash" class="headerlink" title="字符串hash"></a>字符串hash</h4></li>
+<li><p>假设字符串由大写字母A-Z组成。我们把A-Z视为0-25，那么<strong>字符串转化为整数的问题</strong>变为<strong>二十六进制转换为十进制的问题</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">hash</span><span class="params">(<span class="keyword">char</span> S[],<span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line"><span class="keyword">int</span> id = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; len;i++)&#123;</span><br><span class="line">         id = id * <span class="number">26</span> + (S[i] - <span class="string">'A'</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> id;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>字符串由大小写字母组成。我们把A-Z视为0-25,a-z视为26-51，那么<strong>字符串转化为整数的问题</strong>变为<strong>五十二十进制的问题</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hash</span><span class="params">(<span class="keyword">char</span> S[],<span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> id = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; len;i++)&#123;</span><br><span class="line">    	<span class="keyword">if</span>(S[i] &gt;= <span class="string">'A'</span> &amp;&amp; S[i] &lt;= <span class="string">'Z'</span>)</span><br><span class="line">        	id = id * <span class="number">52</span> + (S[i] - <span class="string">'A'</span>);</span><br><span class="line">       	<span class="keyword">else</span> <span class="keyword">if</span>(S[i] &gt;= <span class="string">'a'</span> &amp;&amp; S[i] &lt;= <span class="string">'z'</span>)</span><br><span class="line">            id = id * <span class="number">52</span> + (S[i] - <span class="string">'a'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字符串由大小写字母、数字组成。</p>
+<ul>
+<li><p>按照小写字母的方法，增大进制数到62。</p>
+</li>
+<li><p>如果字符串保证在末尾是确定个数的数字，那么可以先把前面的字母按上面的方法转为数字，再将末尾的数字直接拼接上去。例如：“BCD4”,先把BCD转为731，再把4拼接上去，变为7314</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hash</span><span class="params">(<span class="keyword">char</span> S[],<span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> id = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; len - <span class="number">1</span>;i++)&#123;</span><br><span class="line">    	<span class="keyword">if</span>(S[i] &gt;= <span class="string">'A'</span> &amp;&amp; S[i] &lt;= <span class="string">'Z'</span>)</span><br><span class="line">        	id = id * <span class="number">52</span> + (S[i] - <span class="string">'A'</span>);</span><br><span class="line">       	<span class="keyword">else</span> <span class="keyword">if</span>(S[i] &gt;= <span class="string">'a'</span> &amp;&amp; S[i] &lt;= <span class="string">'z'</span>)</span><br><span class="line">            id = id * <span class="number">52</span> + (S[i] - <span class="string">'a'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    id = id * <span class="number">10</span> + (S[len - <span class="number">1</span>] - <span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">return</span> id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><ul>
+<li><h4 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h4><p>把问题划分为若干个规模较小而结构与原问题相同或类似的子问题</p>
+</li>
+<li><h4 id="递归-1"><a href="#递归-1" class="headerlink" title="递归"></a>递归</h4><ul>
+<li><p>递归适合用来实现分治</p>
+</li>
+<li><p>Fibonacci数列</p>
+</li>
+<li><p>n！</p>
+</li>
+<li><p>递归需要递归边界和递归表达式</p>
+</li>
+<li><p><font color="red">全排列</font>：字典序从小到大地输出1-n的全排列 <code>《算法笔记》Page 115</code></p>
+<p>循环控制分支数，递归控制深度</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><font color="red">n皇后</font>：如何转化为全排列问题？如何优化？<code>《算法笔记》Page 116</code></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h3><ul>
+<li><h4 id="简单贪心"><a href="#简单贪心" class="headerlink" title="简单贪心"></a>简单贪心</h4><p>局部最优来使得全局最优</p>
+</li>
+<li><h4 id="区间贪心"><a href="#区间贪心" class="headerlink" title="区间贪心"></a>区间贪心</h4><ul>
+<li><p>区间不相交问题：给出N个开区间(x,y)，从中选择尽可能多的开区间，使得这些开区间两两没有交集。   方案：对N个区间的左端点从大到小排序，，排序后初始化选择第一个区间，然后从第二次开始每次选择左端点最大而且没有交集的区间</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>区间选点问题：给出N个区间[x,y]，求最少需要确定多少个点，才能使每个闭区间都至少存在一个点。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="二分"><a href="#二分" class="headerlink" title="二分"></a>二分</h3><ul>
+<li><h4 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h4><ul>
+<li>序列中是否存在满足某条件的元素</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//A[]数组有效值为[0,n-1],A[]递增，传入的初始值为left = 0,right = n - 1</span></span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> left,<span class="keyword">int</span> right,<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid;</span><br><span class="line">      <span class="keyword">while</span>(left &lt;= right)&#123;</span><br><span class="line">        mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">          <span class="keyword">if</span>(A[mid] == x) <span class="keyword">return</span> mid;</span><br><span class="line">          <span class="keyword">else</span> <span class="keyword">if</span>(A[mid] &gt; x)&#123;</span><br><span class="line">              right = mid - <span class="number">1</span>;</span><br><span class="line">          &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">              left = mid + <span class="number">1</span>;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">-1</span>;  <span class="comment">// 查找失败</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>如果二分查找的上界超过int的一半时，语句 <code>mid = (left + right) / 2;</code>可能会溢出，用 <code>mid = left + (right - left) / 2;</code>替换。</p>
+</li>
+<li><p>求出序列中第一个大于等于x的元素的位置L以及第一个大于x的元素的位置R，这样元素x在序列中的存在区间就是[L,R)，如果序列中没有x，那么L和R可以理解为假设x存在，则x应当在的位置。</p>
+</li>
+<li><p>先考虑第一个问题：求出序列中第一个<strong>大于等于</strong>x的元素的位置。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//A[]数组有效值为[0,n-1],A[]递增，传入的初始值为left = 0,right = n</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lower_bound</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> left,<span class="keyword">int</span> right,<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid;</span><br><span class="line">    <span class="keyword">while</span>(left &lt; right)&#123;    <span class="comment">//注意不同  left==right时，夹出了x位置</span></span><br><span class="line">        mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(A[mid] &gt;= x)&#123;	 <span class="comment">//注意不同</span></span><br><span class="line">            right = mid;     <span class="comment">//注意不同</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left;  <span class="comment">// 注意不同</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再考虑第二个问题：第一个<strong>大于</strong>x的元素的位置R。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//A[]数组有效值为[0,n-1],A[]递增，传入的初始值为left = 0,right = n</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">upper_bound</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> left,<span class="keyword">int</span> right,<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid;</span><br><span class="line">    <span class="keyword">while</span>(left &lt; right)&#123;    <span class="comment">//相同</span></span><br><span class="line">        mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(A[mid] &gt; x)&#123;		 <span class="comment">//注意不同</span></span><br><span class="line">            right = mid;     <span class="comment">//相同</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left;  <span class="comment">// 相同</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以上两个问题都可以归结为：<strong>寻找有序序列中<font color="red">第一个满足条件C</font>的元素的位置</strong>。以下为模板</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//A[]数组有效值为[0,n-1],A[]递增，传入的初始值为left = 0,right = n(初始值要覆盖所有可能取值)</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> left,<span class="keyword">int</span> right,<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid;</span><br><span class="line">    <span class="keyword">while</span>(left &lt; right)&#123;    </span><br><span class="line">        mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>( 条件C成立 )&#123;		 <span class="comment">//!!!!</span></span><br><span class="line">            right = mid;     </span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果想<strong>寻找<font color="red">最后一个满足条件C</font>的元素的位置</strong>，则可以先求<strong>第一个满足条件！C</strong>的元素的位置，然后将该位置减一即可</p>
+</li>
+</ul>
+</li>
+<li><h4 id="二分法拓展"><a href="#二分法拓展" class="headerlink" title="二分法拓展"></a>二分法拓展</h4><ul>
+<li><p>计算根号2的值</p>
+</li>
+<li><p>在[L,R]上求方程F(x)=0的根</p>
+</li>
+<li><p>木棒切割问题</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO</span></span><br></pre></td></tr></table></figure>
+<h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3></li>
+</ul>
+</li>
+<li><p>问题：求a^b %m</p>
+</li>
+<li><p>方法一：如果b为奇数，a^b = a * a^(b-1);如果b为偶数，a^b = a^(b/2) * a^(b/2)。注意：要保证a&lt;m。而且，当m=1，可以特判结果为0.</p>
+<p>递归写法：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="function">LL <span class="title">binaryPow</span><span class="params">(LL a,LL b,LL m)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(b == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(b % <span class="number">2</span> == <span class="number">1</span>) <span class="keyword">return</span> a * binaryPow(a,b - <span class="number">1</span>,m) % m;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        LL mul = binaryPow(a,b/<span class="number">2</span>,m);</span><br><span class="line">        <span class="keyword">return</span> mul * mul % m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法二：<code>《算法笔记》Page 136</code></p>
+<p>非递归写法：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="function">LL <span class="title">binaryPow</span><span class="params">(LL a,LL b,LL m)</span></span>&#123;</span><br><span class="line">	LL ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b &gt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)&#123;</span><br><span class="line">            ans = ans * a % m;</span><br><span class="line">        &#125;</span><br><span class="line">        a = a * a % m;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="two-pointers"><a href="#two-pointers" class="headerlink" title="two pointers"></a>two pointers</h3><ul>
+<li><h4 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h4><ul>
+<li><p>递归实现</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> L1,<span class="keyword">int</span> R1,<span class="keyword">int</span> L2,<span class="keyword">int</span> R2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = L1,j = L2;</span><br><span class="line">    <span class="keyword">int</span> temp[maxn],index = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &lt;= R1 &amp;&amp; j &lt;= R2)&#123;</span><br><span class="line">        <span class="keyword">if</span>(A[i] &lt;= A[j])&#123;</span><br><span class="line">            temp[index++] = A[i++];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            temp[index++] = A[j++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(i &lt;= R1) temp[index++] = A[i++];</span><br><span class="line">    <span class="keyword">while</span>(j &lt;= R2) temp[index++] = A[j++];</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; index;i++)&#123;</span><br><span class="line">        A[L1 + i] = temp[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(left &lt; right)&#123;</span><br><span class="line">        <span class="keyword">int</span> mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">        mergeSort(A[],left,mid);</span><br><span class="line">        mergeSort(A[],mid + <span class="number">1</span>,right);</span><br><span class="line">        merge(A[],left,mid,mid + <span class="number">1</span>,right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>非递归实现</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span> A[])</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> <span class="built_in">step</span> = <span class="number">2</span>;<span class="built_in">step</span> / <span class="number">2</span> &lt;= n;<span class="built_in">step</span> *= <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i += <span class="built_in">step</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = i + <span class="built_in">step</span> / <span class="number">2</span> - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(mid + <span class="number">1</span> &lt;= n)&#123;</span><br><span class="line">                merge(A,i,mid,mid + <span class="number">1</span>,<span class="built_in">min</span>(i + <span class="built_in">step</span> - <span class="number">1</span>,n));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//核心算法</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Partition</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = A[left];</span><br><span class="line">    <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right &amp;&amp; A[right] &gt; temp) right--;</span><br><span class="line">        A[left] = A[right];</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right &amp;&amp; A[left] &lt;= temp) left++;</span><br><span class="line">        A[right] = A[left];</span><br><span class="line">    &#125;</span><br><span class="line">    A[left] = temp;</span><br><span class="line">    <span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(left &lt; right)&#123;</span><br><span class="line">        <span class="keyword">int</span> pos = Partition(A,left,right);</span><br><span class="line">        quickSort(A,left,pos - <span class="number">1</span>);</span><br><span class="line">        quickSort(A,pos + <span class="number">1</span>,right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="其他高效技巧和算法"><a href="#其他高效技巧和算法" class="headerlink" title="其他高效技巧和算法"></a>其他高效技巧和算法</h3><ul>
+<li><p>随机选择算法</p>
+<p>问题：如何从一个无序的数组中求出第K大的数</p>
+<p>方法：用快速排序的核心算法递归出第K大的数</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">randPartition</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p = (round(<span class="number">1.0</span>*rand()/RAND_MAX(right-left) + left));</span><br><span class="line">    swap(A[p],A[left]);</span><br><span class="line">    <span class="keyword">int</span> temp = A[left];</span><br><span class="line">    <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right &amp;&amp; A[right] &gt; temp) right--;</span><br><span class="line">        A[left] = A[right];</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right &amp;&amp; A[left] &lt;= temp) left++;</span><br><span class="line">        A[right] = A[left];</span><br><span class="line">    &#125;</span><br><span class="line">    A[left] = temp;</span><br><span class="line">    <span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">randSelect</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> left,<span class="keyword">int</span> right,<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(left == right)	<span class="keyword">return</span> A[left];</span><br><span class="line">    <span class="keyword">int</span> p = randPartition(A,left,right);</span><br><span class="line">    <span class="keyword">int</span> m = p - left + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(k == m) <span class="keyword">return</span> A[p];</span><br><span class="line">    <span class="keyword">if</span>(k &lt; m)&#123;</span><br><span class="line">        <span class="keyword">return</span> randSelect(A,left,p - <span class="number">1</span>,k);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> randSelect(A,p + <span class="number">1</span>,right,k - m);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>《算法笔记》</tag>
       </tags>
   </entry>
   <entry>
