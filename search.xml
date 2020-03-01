@@ -1,6 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode刷题整理</title>
+    <url>/2020/03/01/LeetCode%E5%88%B7%E9%A2%98%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<h3 id="LeetCode-389"><a href="#LeetCode-389" class="headerlink" title="LeetCode 389"></a>LeetCode 389</h3><blockquote>
+<p>给定两个字符串 <strong><em>s</em></strong> 和 <strong><em>t</em></strong>，它们只包含小写字母。</p>
+<p>字符串 <strong><em>t\</em></strong> 由字符串 <strong><em>s\</em></strong> 随机重排，然后在随机位置添加一个字母。</p>
+<p>请找出在 <strong><em>t</em></strong> 中被添加的字母。</p>
+</blockquote>
+<ul>
+<li><p>MyCode:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">findTheDifference</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span> hashTable[<span class="number">26</span>];</span><br><span class="line">	    <span class="built_in">memset</span>(hashTable,<span class="number">0</span>,<span class="keyword">sizeof</span>(hashTable));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; s.length();i++)&#123;</span><br><span class="line">		    <span class="keyword">int</span> k = s[i] - <span class="string">'a'</span>;</span><br><span class="line">		    hashTable[k]++;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; t.length();i++)&#123;</span><br><span class="line">		    <span class="keyword">int</span> k = t[i] - <span class="string">'a'</span>;</span><br><span class="line">		    hashTable[k]--;</span><br><span class="line">	    &#125;</span><br><span class="line">        <span class="keyword">char</span> ch;</span><br><span class="line">	    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">26</span>;i++)&#123;</span><br><span class="line">		    <span class="keyword">if</span>(hashTable[i] != <span class="number">0</span>)&#123;</span><br><span class="line">			    ch = i + <span class="string">'a'</span>;</span><br><span class="line">			    </span><br><span class="line">		    &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ch;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>优秀解法：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方法：异或，两个相同元素异或之后的值是0，0和x(任何数)异或等于x，还有一点非常重要：就是不管两个相同的数是在什么时候异或的，最终的结果都会存在0</span></span><br><span class="line"><span class="comment">// 我举个例子：假如有6个数字：2 3 4 4 3 2， 不管是2^3^4^4^3^2 还是我们经过处理之后组合起来 (2^2)^(3^3)^(4^4)结果都是一样的，不会影响结果</span></span><br><span class="line"><span class="comment">// 那我们想下本题两个字符串中的字符，s和t中相同的字符都存在两个，将他们全部异或之后肯定为0，然后其中还有一个多出来的就成了0^x=x，从而得到结果，不知道大家理解没</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">char</span> <span class="title">findTheDifference</span><span class="params">(<span class="keyword">String</span> s, <span class="keyword">String</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++)&#123;</span><br><span class="line">            result ^= s.charAt(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; t.length(); i++)&#123;</span><br><span class="line">            result ^= t.charAt(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《算法笔记》第八章</title>
+    <url>/2020/03/01/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B%E7%AC%AC%E5%85%AB%E7%AB%A0/</url>
+    <content><![CDATA[<h2 id="第八章-搜索"><a href="#第八章-搜索" class="headerlink" title="第八章 搜索"></a>第八章 搜索</h2><h3 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h3><ul>
+<li><p>问题：有n件物品，每件物品的重量为w[i]，价值为c[i]。现在需要选出若干件物品放入一个容器为V的背包，使得在选入背包的物品重量和不超过容量V的前提下，让背包中的物品价值之和最大，求最大价值。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n,V,maxValue = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> w[maxn],c[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> index,<span class="keyword">int</span> sumW,<span class="keyword">int</span> sumC)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(index == n)&#123;</span><br><span class="line">        <span class="keyword">if</span>(sumW &lt;= V &amp;&amp; sumC &gt; maxValue)&#123;</span><br><span class="line">            maxValue = sumC;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    DFS(index + <span class="number">1</span>,sumW,sumC);  <span class="comment">//不选第index件</span></span><br><span class="line">    DFS(index + <span class="number">1</span>,sumW + w[index],sumC + c[index]); <span class="comment">// 选第index件</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>优化：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n,V,maxValue = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> w[maxn],c[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> index,<span class="keyword">int</span> sumW,<span class="keyword">int</span> sumC)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(index == n)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    DFS(index + <span class="number">1</span>,sumW,sumC);  <span class="comment">//不选第index件</span></span><br><span class="line">    <span class="keyword">if</span>(sumW + w[index] &lt;= V)&#123;</span><br><span class="line">    	<span class="keyword">if</span>(sumC + c[index] &gt; ans)&#123;</span><br><span class="line">            ans = sumC + c[index];</span><br><span class="line">        &#125;</span><br><span class="line">        DFS(index + <span class="number">1</span>,sumW + w[index],sumC + c[index]); <span class="comment">// 选第index件</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个问题其实等价于：给定一个序列，枚举这个序列的所有子序列。也等价于：枚举从N个整数中选择K个数的所有方案。例如：给定N个整数，从中选择K个数，使得这K个数之和恰好为一个给定的整数X，如果有多种方案，选择它们元素平方和最大的一个。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n,k,x,maxSumSqu = <span class="number">-1</span>,A[maxn];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp,ans;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> index,<span class="keyword">int</span> nowK,<span class="keyword">int</span> sum,<span class="keyword">int</span> sumSqu)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(nowK == k &amp;&amp; sum == x)&#123;</span><br><span class="line">        <span class="keyword">if</span>(sumSqu &gt; maxSumSqu)&#123;</span><br><span class="line">            maxSumSqu = sumSqu;</span><br><span class="line">            ans = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(index == n || nowK &gt; k || sum &gt; x)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//选index号数</span></span><br><span class="line">    temp.push_back(A[index]);</span><br><span class="line">    DFS(index + <span class="number">1</span>,nowK + <span class="number">1</span>,sum + A[index],sumSqu + A[index] * A[index]);</span><br><span class="line">    temp.pop_back();</span><br><span class="line">    <span class="comment">//不选index号数</span></span><br><span class="line">    DFS(index + <span class="number">1</span>,nowK,sum,sumSqu);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>问题变为：假设N个整数中的每一个都可以被多次选择多次，那么选择K个数，使得K个数之和恰好为X。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n,k,x,maxSumSqu = <span class="number">-1</span>,A[maxn];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp,ans;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> index,<span class="keyword">int</span> nowK,<span class="keyword">int</span> sum,<span class="keyword">int</span> sumSqu)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(nowK == k &amp;&amp; sum == x)&#123;</span><br><span class="line">        <span class="keyword">if</span>(sumSqu &gt; maxSumSqu)&#123;</span><br><span class="line">            maxSumSqu = sumSqu;</span><br><span class="line">            ans = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(index == n || nowK &gt; k || sum &gt; x)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    temp.push_back(A[index]);</span><br><span class="line">    DFS(index,nowK + <span class="number">1</span>,sum + A[index],sumSqu + A[index] * A[index]); <span class="comment">// 不同</span></span><br><span class="line">    temp.pop_back();</span><br><span class="line">    DFS(index + <span class="number">1</span>,nowK,sum,sumSqu);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="广度搜索"><a href="#广度搜索" class="headerlink" title="广度搜索"></a>广度搜索</h3><ul>
+<li><p>BFS模板</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    q.push(s);</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        取出队首元素top;</span><br><span class="line">        访问队首元素top;</span><br><span class="line">        将队首元素出队;</span><br><span class="line">        将top的下一层节点中未曾入队的节点全部入队，并设置已入队；</span><br><span class="line">        <span class="comment">//注意：设置的是节点是否已入队而不是是否已被访问</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对下一层节点选取，可以使用增量数组</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> X[] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> Y[] = &#123;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">4</span>;i++)&#123;</span><br><span class="line">    newX = nowX + X[i];</span><br><span class="line">    newY = nowY + Y[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当使用STL的queue时，元素入队的push操作只是制造了该元素的一个副本，因此，入队后对原元素的修改不会影响副本，对副本的操作也不会影响原元素。</p>
+<p>所以，当需要对队列中的元素进行修改而不仅仅是访问时，队列中存放的元素最好不是元素本身而是它们的编号。</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>《算法笔记》</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2020/03/01</title>
+    <url>/2020/03/01/diary/2020-03-01/</url>
+    <content><![CDATA[<h2 id="今日完成"><a href="#今日完成" class="headerlink" title="今日完成"></a>今日完成</h2><ul>
+<li>经济学人一篇</li>
+<li>李正元数学第一章</li>
+<li>算法笔记第5-8章整理</li>
+<li>LeetCode 2题（#345  #389）</li>
+<li>学习时长8 h 10 min</li>
+</ul>
+<h2 id="今日总结（最多两行）"><a href="#今日总结（最多两行）" class="headerlink" title="今日总结（最多两行）"></a>今日总结（最多两行）</h2><ul>
+<li>数学做多了眼睛好痛，明天记得一小时休息一下看能不能减轻疼痛。LeetCode上面化的时间过去了，一晚上就只刷了两题，而且还是简单题，难题没思路也不大敢做</li>
+</ul>
+<h2 id="明天（最多5个）"><a href="#明天（最多5个）" class="headerlink" title="明天（最多5个）"></a>明天（最多5个）</h2><ul>
+<li>经济学人</li>
+<li>中午数学</li>
+<li>晚上数据结构</li>
+</ul>
+<h2 id="备忘录"><a href="#备忘录" class="headerlink" title="备忘录"></a>备忘录</h2><ul>
+<li><p>六点起床</p>
+</li>
+<li><p>洗面奶</p>
+</li>
+<li><p>ipad写一下计划</p>
+</li>
+<li><p>复习一遍“习惯”</p>
+</li>
+<li><p>午睡半小时</p>
+</li>
+<li><p>做事不听歌</p>
+</li>
+<li><p>收电脑、手机</p>
+</li>
+<li><p>刷学习强国</p>
+</li>
+<li><p>拖地</p>
+</li>
+<li><p>23点前睡觉</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>diary</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《算法笔记》第五章</title>
+    <url>/2020/03/01/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B%E7%AC%AC%E4%BA%94%E7%AB%A0/</url>
+    <content><![CDATA[<h2 id="第五章-入门篇（2）-数学问题"><a href="#第五章-入门篇（2）-数学问题" class="headerlink" title="第五章 入门篇（2） 数学问题"></a>第五章 入门篇（2） 数学问题</h2><h3 id="最大公约数与最小公倍数"><a href="#最大公约数与最小公倍数" class="headerlink" title="最大公约数与最小公倍数"></a>最大公约数与最小公倍数</h3><ul>
+<li><h4 id="最大公约数"><a href="#最大公约数" class="headerlink" title="最大公约数"></a>最大公约数</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b == <span class="number">0</span>) <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> gcd(b,a % b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="最小公倍数"><a href="#最小公倍数" class="headerlink" title="最小公倍数"></a>最小公倍数</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lcm</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a * b / gcd(a,b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="分数的四则运算"><a href="#分数的四则运算" class="headerlink" title="分数的四则运算"></a>分数的四则运算</h3><ul>
+<li><h4 id="分数的表示和化简"><a href="#分数的表示和化简" class="headerlink" title="分数的表示和化简"></a>分数的表示和化简</h4><ul>
+<li><p>分数的表示</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Fraction</span>&#123;</span></span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> up,down;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>三项规则：</p>
+<ul>
+<li>使down为非负数。如果分数为负，那么令分子up为负。</li>
+<li>如果该分数为0，那么规定其分子为0，分母为1。</li>
+<li>分子和分母没有除了1以外的公约数</li>
+</ul>
+</li>
+<li><p>分数的化简</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcb</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(b == <span class="number">0</span>) <span class="keyword">return</span> a;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> gcb(b,a % b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Fraction <span class="title">reduction</span><span class="params">(Fraction result)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(result.down &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        result.up = - result.up;</span><br><span class="line">        result.down = -result.down;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(result.up == <span class="number">0</span>)&#123;</span><br><span class="line">        result.down = <span class="number">1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">int</span> d = gcd(<span class="built_in">abs</span>(result.up),<span class="built_in">abs</span>(result.down));</span><br><span class="line">        result.up /= d;</span><br><span class="line">        result.down /= d;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><h4 id="分数的四则运算-1"><a href="#分数的四则运算-1" class="headerlink" title="分数的四则运算"></a>分数的四则运算</h4><ul>
+<li><p>分数加法</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">Fraction <span class="title">add</span><span class="params">(Fraction f1,Fraction f2)</span></span>&#123;</span><br><span class="line">    Fraction result;</span><br><span class="line">    result.up = f1.up * f2.down + f2.up * f1.down;</span><br><span class="line">    result.down = f1.down * f2.down;</span><br><span class="line">    <span class="keyword">return</span> reduction(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>分数减法</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">Fraction <span class="title">add</span><span class="params">(Fraction f1,Fraction f2)</span></span>&#123;</span><br><span class="line">    Fraction result;</span><br><span class="line">    result.up = f1.up * f2.down - f2.up * f1.down;</span><br><span class="line">    result.down = f1.down * f2.down;</span><br><span class="line">    <span class="keyword">return</span> reduction(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>分数乘法</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">Fraction <span class="title">add</span><span class="params">(Fraction f1,Fraction f2)</span></span>&#123;</span><br><span class="line">    Fraction result;</span><br><span class="line">    result.up = f1.up * f2.up;</span><br><span class="line">    result.down = f1.down * f2.down;</span><br><span class="line">    <span class="keyword">return</span> reduction(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>分数除法</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">Fraction <span class="title">add</span><span class="params">(Fraction f1,Fraction f2)</span></span>&#123;</span><br><span class="line">    Fraction result;</span><br><span class="line">    result.up = f1.up * f2.down ;</span><br><span class="line">    result.down = f1.down * f2.up;</span><br><span class="line">    <span class="keyword">return</span> reduction(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>分数的输出</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">showResult</span><span class="params">(Fraction r)</span></span>&#123;</span><br><span class="line">	r = reduction(r);</span><br><span class="line">    <span class="keyword">if</span>(r.down == <span class="number">1</span>)	<span class="built_in">cout</span> &lt;&lt; r.up;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">abs</span>(r.up) &gt; r.down)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; r.up / r.down &lt;&lt; <span class="string">" "</span>&lt;&lt; <span class="built_in">abs</span>(r.up) % r.down &lt;&lt;<span class="string">"/"</span> &lt;&lt; r.down;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; r.up &lt;&lt; <span class="string">"/"</span>&lt;&lt; r.down;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="素数"><a href="#素数" class="headerlink" title="素数"></a>素数</h4><ul>
+<li><h4 id="判断是否为素数"><a href="#判断是否为素数" class="headerlink" title="判断是否为素数"></a>判断是否为素数</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//判断是否为素数，该方法10^5内可以运行</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isPrime</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n &lt; <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">int</span> sqr = (<span class="keyword">int</span>)<span class="built_in">sqrt</span>(<span class="number">1.0</span> * n);		<span class="comment">//sqrt在math.h中，参数必须为浮点数</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= sqr;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(n % i == <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="素数表的获取"><a href="#素数表的获取" class="headerlink" title="素数表的获取"></a>素数表的获取</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//注意，用算法经常出现要特判n=1时不是素数，即另p[1] = true;</span></span><br><span class="line"><span class="comment">//求2--maxn的全部素数表，用了筛选法，效率高</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">101</span>;	<span class="comment">//表长</span></span><br><span class="line"><span class="keyword">int</span> prime[maxn],pNum = <span class="number">0</span>; <span class="comment">//prime数组存储所以素数，pNum为素数个数</span></span><br><span class="line"><span class="keyword">bool</span> p[maxn] = &#123;<span class="number">0</span>&#125;;	<span class="comment">//	若为素数，p[i]为false，否则为true</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Find_Prime</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>;i &lt; maxn;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(p[i] == <span class="literal">false</span>)&#123;</span><br><span class="line">			prime[pNum++] = i;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>;j &lt; maxn;j += <span class="number">1</span>)&#123;</span><br><span class="line">				p[j] = <span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="质因子的分解"><a href="#质因子的分解" class="headerlink" title="质因子的分解"></a>质因子的分解</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="大整数运算"><a href="#大整数运算" class="headerlink" title="大整数运算"></a>大整数运算</h4><ul>
+<li><p>大整数的存储</p>
+</li>
+<li><p>大整数的四则运算</p>
+<ul>
+<li><p>高精度加法</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>高精度减法</p>
+</li>
+<li><p>高精度乘法</p>
+</li>
+<li><p>高精度除法</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h4 id="扩展欧里几得算法-TODO"><a href="#扩展欧里几得算法-TODO" class="headerlink" title="扩展欧里几得算法 //TODO"></a>扩展欧里几得算法 //TODO</h4></li>
+<li><h4 id="组合数-TODO"><a href="#组合数-TODO" class="headerlink" title="组合数 //TODO"></a>组合数 //TODO</h4></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>《算法笔记》</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2020/02/29</title>
     <url>/2020/02/29/diary/2020-02-29/</url>
     <content><![CDATA[<h2 id="今日完成"><a href="#今日完成" class="headerlink" title="今日完成"></a>今日完成</h2><ul>
@@ -36,8 +222,7 @@
     <title>《算法笔记》第四章</title>
     <url>/2020/02/29/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B%E7%AC%AC%E5%9B%9B%E7%AB%A0/</url>
     <content><![CDATA[<h2 id="第四章-入门篇（2）-算法初步"><a href="#第四章-入门篇（2）-算法初步" class="headerlink" title="第四章 入门篇（2）  算法初步"></a>第四章 入门篇（2）  算法初步</h2><blockquote>
-<p>重点：<font color="red">红色</font>   </p>
-<p>不理解：TODO</p>
+<p>重点：<font color="red">红色</font>      不理解：TODO</p>
 </blockquote>
 <h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><ul>
 <li><h4 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h4><p>有序 | 无序</p>
@@ -123,7 +308,7 @@
 </li>
 <li><p><font color="red">全排列</font>：字典序从小到大地输出1-n的全排列 <code>《算法笔记》Page 115</code></p>
 <p>循环控制分支数，递归控制深度</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">11</span>;</span><br><span class="line"><span class="keyword">int</span> n,P[maxn],hashTable[maxn] = &#123;<span class="literal">false</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span>  <span class="title">generateP</span><span class="params">(<span class="keyword">int</span> index)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(index == n + <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d"</span>,P[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> x = <span class="number">1</span>;x &lt;= n;x++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(hashTable[x] == <span class="literal">false</span>)&#123;</span><br><span class="line">            P[index] = <span class="literal">true</span>;</span><br><span class="line">            hashTable[x] = <span class="literal">true</span>;</span><br><span class="line">            generateP(index + <span class="number">1</span>);</span><br><span class="line">            hashTable[x] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -133,7 +318,13 @@
 </ul>
 <ul>
 <li><p><font color="red">n皇后</font>：如何转化为全排列问题？如何优化？<code>《算法笔记》Page 116</code></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO</span></span><br></pre></td></tr></table></figure>
+<p>方案：把棋盘横坐标固定为1,2,3，……，根据棋子放的位置，棋子的纵坐标就是一个全排列，枚举全部全排列，每生成一个排列就判断是否有一对棋子在对角线上。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span>  <span class="title">generateP</span><span class="params">(<span class="keyword">int</span> index)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(index == n + <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>;j &lt;= n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">abs</span>(i - j) == <span class="built_in">abs</span>(P[i] - P[j]))&#123;</span><br><span class="line">                    flag = <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag) count++;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> x = <span class="number">1</span>;x &lt;= n;x++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(hashTable[x] == <span class="literal">false</span>)&#123;</span><br><span class="line">            P[index] = <span class="literal">true</span>;</span><br><span class="line">            hashTable[x] = <span class="literal">true</span>;</span><br><span class="line">            generateP(index + <span class="number">1</span>);</span><br><span class="line">            hashTable[x] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>优化：把判断是否有一对棋子在对角线上放在每次放棋子时，而不是完整生成一个全排列时。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span>  <span class="title">generateP</span><span class="params">(<span class="keyword">int</span> index)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(index == n + <span class="number">1</span>)&#123;</span><br><span class="line">        count++;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> x = <span class="number">1</span>;x &lt;= n;x++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(hashTable[x] == <span class="literal">false</span>)&#123;</span><br><span class="line">            P[index] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> pre = <span class="number">1</span>;pre &lt; index;pre++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">abs</span>(index - pre) == <span class="built_in">abs</span>(x - P[pre]))&#123;</span><br><span class="line">                    flag = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(flag)&#123;</span><br><span class="line">                P[index] = x;</span><br><span class="line">                hashTable[x] = <span class="literal">true</span>;</span><br><span class="line">            	generateP(index + <span class="number">1</span>);</span><br><span class="line">            	hashTable[x] = <span class="literal">false</span>;</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 
 </li>
 </ul>
@@ -142,10 +333,10 @@
 </li>
 <li><h4 id="区间贪心"><a href="#区间贪心" class="headerlink" title="区间贪心"></a>区间贪心</h4><ul>
 <li><p>区间不相交问题：给出N个开区间(x,y)，从中选择尽可能多的开区间，使得这些开区间两两没有交集。   方案：对N个区间的左端点从大到小排序，，排序后初始化选择第一个区间，然后从第二次开始每次选择左端点最大而且没有交集的区间</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;csdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">110</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Inteval</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x,y;</span><br><span class="line">&#125;I[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Inteval a,Inteval b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.x != b.x)</span><br><span class="line">        <span class="keyword">return</span> a.x &gt; b.x;</span><br><span class="line">    <span class="keyword">return</span> a.y &lt; b.y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n),n != <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;I[i].x,&amp;I[i].y);</span><br><span class="line">        &#125;</span><br><span class="line">        sort(I,I + n,cmp);</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">1</span>,lastX = I[<span class="number">0</span>].x;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(I[i].y &lt;= lastX)&#123;</span><br><span class="line">                lastX = I[i].x;</span><br><span class="line">                ans++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>区间选点问题：给出N个区间[x,y]，求最少需要确定多少个点，才能使每个闭区间都至少存在一个点。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;csdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">110</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Inteval</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x,y;</span><br><span class="line">&#125;I[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Inteval a,Inteval b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.x != b.x)</span><br><span class="line">        <span class="keyword">return</span> a.x &gt; b.x;</span><br><span class="line">    <span class="keyword">return</span> a.y &lt; b.y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n),n != <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;I[i].x,&amp;I[i].y);</span><br><span class="line">        &#125;</span><br><span class="line">        sort(I,I + n,cmp);</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">1</span>,lastX = I[<span class="number">0</span>].x;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(I[i].y &lt; lastX)&#123;   <span class="comment">//不同</span></span><br><span class="line">                lastX = I[i].x;</span><br><span class="line">                ans++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
